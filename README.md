@@ -7,8 +7,8 @@ Continuum is an interpolation library for GameMaker Studio 2.3 and later. It use
 
 ## Description
 GameMaker's interpolation features are very limited. You can only use linear interpolation and can never reach your target value without external interference.\
-Continuum fixes this by relying on animation curves and customisable timers which scale naturally with duration, requiring no speed configuration from the user. The library also uses functions to automatically process interpolation with minimal effort.
-You can also set optional custom behaviour for when interpolation is complete as well as when it reaches a certain level of progress.
+Continuum fixes this by relying on animation curves and customisable timers which scale naturally with duration, requiring no speed configuration from the user. The library also uses functions to automatically process interpolation with minimal effort.\
+You can also set optional custom behaviour for when interpolation is complete as well as when it reaches a certain level of progress.\
 While Continuum supports any animation curve, it also comes with a curated pack of animation curves to get you started.
 
 ## Compatibility
@@ -18,11 +18,11 @@ Continuum requires **GameMaker Studio 2.3 or later**, as it relies on:
 - Default function arguments and first-class functions
 
 ## Installation
-Step 1: Open the GameMaker project you'd like to import Continuum to.
-Step 2: Click the `Tools` option in the toolbar at the top of the window.
-Step 3: Click `Import Local Package` from the dropdown.
-Step 4: Locate and choose `gm_continuum_VERSION.yymps`. 
-Step 5: Click `Add All` in the GameMaker window that opens.
+Step 1: Open the GameMaker project you'd like to import Continuum to.\
+Step 2: Click the `Tools` option in the toolbar at the top of the window.\
+Step 3: Click `Import Local Package` from the dropdown.\
+Step 4: Locate and choose `gm_continuum_VERSION.yymps`. \
+Step 5: Click `Add All` in the GameMaker window that opens.\
 Step 6: Click `Import` at the bottom of the same window.
 
 Once you've followed these steps, you will find everything you need in the `Continuum` folder located in the asset browser.
@@ -78,7 +78,7 @@ result = lerpAuto(
 )
 ```
 
-This code would process interpolation as usual, but run custom behaviour when reaching 75% of its duration. Continuum automatically ensures this custom behaviour will only be triggered once per lerp.
+This code would process interpolation as usual, but run custom behaviour when reaching 75% of its duration. Continuum automatically ensures this custom behaviour will only be triggered once per lerp.\
 Replace `funcComplete` with a function if you want custom behaviour in completion or `undefined` if you only want custom behaviour partway through interpolation.
 
 
