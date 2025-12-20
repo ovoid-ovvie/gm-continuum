@@ -6,9 +6,12 @@ Continuum is released under the MIT License. See [LICENSE.md](LICENSE.md) for de
 Continuum is an interpolation library for GameMaker Studio 2.3 and later. It uses animation curves and custom-built functions to process interpolation with more options and less issues than the engine's inbuilt options.
 
 ## Description
-GameMaker's interpolation features are very limited. You can only use linear interpolation and can never reach your target value without external interference.\
-Continuum fixes this by relying on animation curves and customisable timers which scale naturally with duration, requiring no speed configuration from the user. The library also uses functions to automatically process interpolation with minimal effort.\
-You can also set optional custom behaviour for when interpolation is complete as well as when it reaches a certain level of progress.\
+GameMaker's interpolation features are very limited. You can only use linear interpolation and can never reach your target value without external interference.
+
+Continuum fixes this by relying on animation curves and customisable timers which scale naturally with duration, requiring no speed configuration from the user. The library also uses functions to automatically process interpolation with minimal effort.
+
+You can also set optional custom behaviour for when interpolation is complete as well as when it reaches a certain level of progress.
+
 While Continuum supports any animation curve, it also comes with a curated pack of animation curves to get you started.
 
 ## Compatibility
