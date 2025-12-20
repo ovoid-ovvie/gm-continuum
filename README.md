@@ -94,7 +94,8 @@ These act as a method of checking the game's current speed, allowing the user to
 Initialises an interpolation entry.
 #### Parameter 1: struct
 The struct to store the entry in.
-
+#### Parameter 2: name
+The name of 
 
 
 ## Curves
