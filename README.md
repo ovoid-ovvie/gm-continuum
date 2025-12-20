@@ -89,13 +89,38 @@ This section contains documentation on each of the aspects of Continuum. Note th
 ### global.lerp
 This struct is the default library for storing interpolation entries. This struct can be modified or removed as desired, but some kind of struct is required to use Continuum.
 ### continuumGetGameSpeed() / G_FPS
-These act as a method of checking the game's current speed, allowing the user to write durations in seconds for simplicity. While you can use these in your project where appropriate, they are not necessary for using Continuum.
+These act as a method of checking the game's current speed. Used in `lerpAuto` to convert duration in seconds to duration in frames.
+### continuumDecimal()
+Converts a percentage into a decimal and clamps it between 0 and 100. Used in `lerpAuto` to convert the percentage used in custom behaviour into a value compatible with the system.
 ### lerpStart()
 Initialises an interpolation entry.
 #### Parameter 1: struct
 The struct to store the entry in.
 #### Parameter 2: name
-The name of the entry in a string.
+The name of the entry as a string.
+#### Parameter 3: maxTime
+The entry's duration in frames.
+### lerpExists()
+Checks whether or not an interpolation entry already exists.
+#### Parameter 1: struct
+The struct to check.
+#### Parameter 2: name
+The name of the entry to check as a string.
+### lerpProcess()
+Evaluates an animation curve and returns an interpolated value.
+#### Parameter 1: a
+Must be the start value.
+#### Parameter 2: b
+Must be the end value.
+#### Parameter 3: t
+Must be the entry's `time` divided by its `duration`.
+#### Parameter 4: curve
+Target animation curve.
+#### Parameter 5: channel
+Target channel within the animation curve.
+### lerpAuto()
+Automatically processes interpolation from start to finish and optionally runs custom behaviour on completion and/or at a certain level of progress.
+
 
 
 ## Curves
