@@ -85,17 +85,17 @@ This code would process interpolation as usual, but run custom behaviour when re
 Replace `funcComplete` with a function if you want custom behaviour in completion or `undefined` if you only want custom behaviour partway through interpolation.
 
 ## Reference
-This section contains documentation on each of the aspects of Continuum.
+This section contains documentation on each of the aspects of Continuum. Note that only `lerpAuto` is required to use the library, and all other aspects are in support of it.
 ### global.lerp
 This struct is the default library for storing interpolation entries. This struct can be modified or removed as desired, but some kind of struct is required to use Continuum.
-### getGameSpeed() / G_FPS
+### continuumGetGameSpeed() / G_FPS
 These act as a method of checking the game's current speed, allowing the user to write durations in seconds for simplicity. While you can use these in your project where appropriate, they are not necessary for using Continuum.
 ### lerpStart()
 Initialises an interpolation entry.
 #### Parameter 1: struct
 The struct to store the entry in.
 #### Parameter 2: name
-The name of 
+The name of the entry in a string.
 
 
 ## Curves
