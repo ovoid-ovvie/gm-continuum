@@ -94,30 +94,20 @@ These act as a method of checking the game's current speed. Used in `lerpAuto` t
 Converts a percentage into a decimal and clamps it between 0 and 100. Used in `lerpAuto` to convert the percentage used in custom behaviour into a value compatible with the system.
 ### lerpStart()
 Initialises an interpolation entry.
-#### Parameter 1: struct
-The struct to store the entry in.
-#### Parameter 2: name
-The name of the entry as a string.
-#### Parameter 3: maxTime
-The entry's duration in frames.
+- **Parameter 1: struct** / The struct to store the entry in.
+- **Parameter 2: name** / The name of the entry as a string.
+- **Parameter 3: maxTime** / The entry's duration in frames.
 ### lerpExists()
 Checks whether or not an interpolation entry already exists.
-#### Parameter 1: struct
-The struct to check.
-#### Parameter 2: name
-The name of the entry to check as a string.
+- **Parameter 1: struct** / The struct to check.
+- **Parameter 2: name** / The name of the entry to check as a string.
 ### lerpProcess()
 Evaluates an animation curve and returns an interpolated value.
-#### Parameter 1: a
-Must be the start value.
-#### Parameter 2: b
-Must be the end value.
-#### Parameter 3: t
-Must be the entry's `time` divided by its `duration`.
-#### Parameter 4: curve
-Target animation curve.
-#### Parameter 5: channel
-Target channel within the animation curve.
+- **Parameter 1: a** / Must be the start value.
+- **Parameter 2: b** / Must be the end value.
+- **Parameter 3: t** / Must be the entry's `time` divided by its `duration`.
+- **Parameter 4: curve** / Target animation curve.
+- **Parameter 5: channel** / Target channel within the animation curve.
 ### lerpAuto()
 Automatically processes interpolation from start to finish and optionally runs custom behaviour on completion and/or at a certain level of progress.
 
