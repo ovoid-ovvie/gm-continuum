@@ -27,10 +27,65 @@ Step 6: Click `Import` at the bottom of the same window.
 
 Once you've followed these steps, you will find everything you need in the `Continuum` folder located in the asset browser.
 
+## Quickstart
+To process an instance of interpolation, run `lerpAuto` in the desired object's code. You must call the function as part of setting a variable since it returns the interpolation result. For example:
+
+```
+result = lerpAuto(
+  global.lerp,
+  "menuFadeIn",
+  1, 0, 1,
+  crvLerp, "trans_sine"
+)
+```
+
+This code would interpolate `0` to `1` over the course of one second.
+
+It is recommended to rely on a boolean set to true once interpolation is complete to avoid infinite loops.
+
+```
+Create event:
+fadeConsume = false
+
+Step event:
+if ( !fadeConsume ) {
+  result = lerpAuto(
+    global.lerp,
+    "menuFadeIn",
+    1, 0, 1,
+    crvLerp, "trans_sine",
+    function() {
+      fadeConsume = true
+    }
+)
+```
+
+This code would also interpolate `0` to `1` over the course of one second, but it would only run once unless you set the consume back to false elsewhere.
+
+If you wanted to trigger something once the interpolation reaches a certain level of progress:
+
+```
+result = lerpAuto(
+  global.lerp,
+  "menuFadeIn",
+  1, 0, 1,
+  crvLerp, "trans_sine",
+  funcComplete,
+  75,
+  function() {
+    // custom behaviour here
+  }
+)
+```
+
+This code would process interpolation as usual, but run custom behaviour when reaching 75% of its duration. Continuum automatically ensures this custom behaviour will only be triggered once per lerp.
+Replace `funcComplete` with a function if you want custom behaviour in completion or `undefined` if you only want custom behaviour partway through interpolation.
+
 
 ## Curves
 The library includes a number of premade curves. This section lists them.
 ### Standard Methods
+These methods are established interpolation types within game development.
 - linear
 - sine
 - quint
@@ -44,6 +99,7 @@ The library includes a number of premade curves. This section lists them.
 - bounce
 - back
 ### Custom Methods
+These methods are not established like the standard methods, but are helpful nonetheless.
 - bounce return
 - tri pulse
 - tri pulse partial
