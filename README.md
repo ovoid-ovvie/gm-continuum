@@ -110,7 +110,16 @@ Evaluates an animation curve and returns an interpolated value.
 - **Parameter 5: channel** / Target channel within the animation curve.
 ### lerpAuto()
 Automatically processes interpolation from start to finish and optionally runs custom behaviour on completion and/or at a certain level of progress.
-
+- **Parameter 1: struct** / The struct to store and check interpolation info.
+- **Parameter 2: name** / The name for the interpolation entry as a string.
+- **Parameter 3: dur** / Duration in seconds.
+- **Parameter 4: start** / Start interpolation value.
+- **Parameter 5: finish** / End interpolation value.
+- **Parameter 6: curve** / The animation curve to use for evaluation.
+- **Parameter 7: channel** / The channel to evaluate.
+- **Optional Parameter 8: funcComplete** / Function to run once interpolation is finished.
+- **Optional Parameter 9: exceptionPercent** / Number between 0 and 100 representing a percentage of the way through the interpolation process.
+- **Optional Parameter 10: exceptionFunc** / Function to run when a percentage of the way through the interpolation process.
 
 
 ## Curves
