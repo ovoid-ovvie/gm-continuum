@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"__CMLerp",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__CMLerp",
+  "parent":{
+    "name":"Continuum",
+    "path":"folders/Continuum.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

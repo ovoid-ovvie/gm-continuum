@@ -1,135 +1,44 @@
-[Download Continuum](downloads/gm_continuum_v1_0_0.yymps)
+# Continuum
 
-Continuum is released under the MIT License. See [LICENSE.md](LICENSE.md) for details. In short, Continuum is free to use and modify, including commercially.
+Continuum is an interpolation API for GameMaker. It handles curve-driven lerping between two values, with support for completion callbacks and mid-interpolation exception callbacks, all through a single function call per step.
 
-## Overview
-Continuum is an interpolation library for GameMaker Studio 2.3 and later. It uses animation curves and custom-built functions to process interpolation with more options and less issues than the engine's inbuilt options.
+It is designed to be simple to use without sacrificing flexibility.
 
-## Description
-GameMaker's interpolation features are very limited. You can only use linear interpolation and can never reach your target value without external interference.
+---
 
-Continuum fixes this by relying on animation curves and customisable timers which scale naturally with duration, requiring no speed configuration from the user. The library also uses functions to automatically process interpolation with minimal effort.
+## Why Continuum?
 
-You can also set optional custom behaviour for when interpolation is complete as well as when it reaches a certain level of progress.
+GameMaker's built-in `lerp()` is stateless -- it takes a start, end, and factor, and returns a value. That's fine for simple cases, but managing the factor over time, knowing when the lerp is done, and triggering callbacks at specific points all require boilerplate you end up rewriting every project.
 
-While Continuum supports any animation curve, it also comes with a curated pack of animation curves to get you started.
+Continuum handles all of that. You call `lerp_cm()` every step, pass it a name and the values you want to interpolate between, and it manages the rest. When it finishes it cleans itself up and calls your completion function. You never touch a timer or a flag.
 
-## Compatibility
-Continuum requires **GameMaker Studio 2.3 or later**, as it relies on:
-- Animation curve assets (`Asset.GMAnimCurve`)
-- Structs and dynamic property access (`{}` and `$`)
-- Default function arguments and first-class functions
+It also uses GameMaker animation curves rather than a hardcoded easing function, so the shape of every interpolation is as flexible as your curve editor allows.
 
-## Installation
-Step 1: Open the GameMaker project you'd like to import Continuum to.\
-Step 2: Click the `Tools` option in the toolbar at the top of the window.\
-Step 3: Click `Import Local Package` from the dropdown.\
-Step 4: Locate and choose `gm_continuum_VERSION.yymps`. \
-Step 5: Click `Add All` in the GameMaker window that opens.\
-Step 6: Click `Import` at the bottom of the same window.
+---
 
-Once you've followed these steps, you will find everything you need in the `Continuum` folder located in the asset browser.
+## Feature Overview
 
-## Quickstart
-To process an instance of interpolation, run `lerpAuto` in the desired object's code. You must call the function as part of setting a variable since it returns the interpolation result. For example:
+- Curve-driven interpolation between two values
+- Automatic state management -- no timers or flags needed
+- Completion callback fired when the interpolation finishes
+- Exception callback fired at a specified percentage through the interpolation
+- Self-cleaning -- entries are removed from the store automatically on completion
+- Configurable global store location
+- Bundled animation curves covering common easing and pulse styles, ready to use out of the box
 
-```
-result = lerpAuto(
-  global.lerp,
-  "menuFadeIn",
-  1, 0, 1,
-  crvLerp, "trans_sine"
-)
-```
+---
 
-This code would interpolate `0` to `1` over the course of one second.
+## Getting Started
 
-It is recommended to rely on a boolean set to true once interpolation is complete to avoid infinite loops.
+See the [Setup](Docs/Setup.md) page to get Continuum integrated into your project.
 
-```
-Create event:
-fadeConsume = false
+---
 
-Step event:
-if ( !fadeConsume ) {
-  result = lerpAuto(
-    global.lerp,
-    "menuFadeIn",
-    1, 0, 1,
-    crvLerp, "trans_sine",
-    function() {
-      fadeConsume = true
-    }
-)
-```
+## Documentation
 
-This code would also interpolate `0` to `1` over the course of one second, but it would only run once unless you set the consume back to false elsewhere.
-
-If you wanted to trigger something once the interpolation reaches a certain level of progress:
-
-```
-result = lerpAuto(
-  global.lerp,
-  "menuFadeIn",
-  1, 0, 1,
-  crvLerp, "trans_sine",
-  funcComplete,
-  75,
-  function() {
-    // custom behaviour here
-  }
-)
-```
-
-This code would process interpolation as usual, but run custom behaviour when reaching 75% of its duration. Continuum automatically ensures this custom behaviour will only be triggered once per lerp.\
-Replace `funcComplete` with a function if you want custom behaviour in completion or `undefined` if you only want custom behaviour partway through interpolation.
-
-## Reference
-This section contains documentation on each of the aspects of Continuum. Note that only `lerpAuto` is required to use the library, and all other aspects are in support of it.
-### global.lerp
-This struct is the default library for storing interpolation entries. This struct can be modified or removed as desired, but some kind of struct is required to use Continuum.
-### continuumGetGameSpeed() / G_FPS
-These act as a method of checking the game's current speed, allowing the user to write durations in seconds for simplicity. While you can use these in your project where appropriate, they are not necessary for using Continuum.
-### lerpStart()
-Initialises an interpolation entry.
-#### Parameter 1: struct
-The struct to store the entry in.
-#### Parameter 2: name
-The name of the entry in a string.
-
-
-## Curves
-The library includes a number of premade curves. This section lists them.
-### Standard Methods
-These methods are established interpolation types within game development.
-- linear
-- sine
-- quint
-- quad
-- quint
-- expo
-- elastic
-- cubic
-- circ
-- back
-- bounce
-- back
-### Custom Methods
-These methods are not established like the standard methods, but are helpful nonetheless.
-- bounce return
-- tri pulse
-- tri pulse partial
-- quint pulse
-- quint pulse partial
-- ease out
-### Linear Variations
-These curves only begin interpolating once reaching a certian percentage of the total duration.
-- delayed (10%)
-- delayed (20%)
-- delayed (25%)
-- delayed (33%)
-- delayed (50%)
-- delayed (66%)
-- delayed (75%)
-- delayed (80%)
-- delayed (90%)
+- [Setup](Docs/Setup.md)
+- [How It Works](Docs/How-It-Works.md)
+- [Using lerp_cm](Docs/Using-lerp-cm.md)
+- [Animation Curves](Docs/Animation-Curves.md)
+- [Callbacks](Docs/Callbacks.md)
+- [API Reference](Docs/API-Reference.md)

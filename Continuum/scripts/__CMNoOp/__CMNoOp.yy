@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"__CMNoOp",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__CMNoOp",
+  "parent":{
+    "name":"(System)",
+    "path":"folders/Continuum/(System).yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
