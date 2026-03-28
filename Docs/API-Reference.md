@@ -28,15 +28,15 @@ Interpolates between two values over a given duration, shaped by an animation cu
 
 ```gml
 // Basic usage
-x = lerp_cm("move_x", 1.5, 0, 100, crvLerp, "trans_cubic");
+x = lerp_cm("move_x", 1.5, 0, 100, crvLerp, "trans_cubic_in_out");
 
 // With completion callback
-x = lerp_cm("move_x", 1.5, 0, 100, crvLerp, "trans_cubic",
+x = lerp_cm("move_x", 1.5, 0, 100, crvLerp, "trans_cubic_in_out",
     function() { state = STATE.IDLE; }
 );
 
 // With both callbacks
-x = lerp_cm("move_x", 2.0, 0, 100, crvLerp, "trans_cubic",
+x = lerp_cm("move_x", 2.0, 0, 100, crvLerp, "trans_cubic_in_out",
     function() { state = STATE.IDLE; },
     50,
     function() { show_debug_message("halfway"); }

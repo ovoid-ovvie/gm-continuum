@@ -16,7 +16,7 @@ x = lerp_cm(
     "move_x",
     1.5,
     x_start, x_target,
-    crvLerp, "trans_cubic",
+    crvLerp, "trans_cubic_in_out",
     function() { show_debug_message("move_x complete"); }
 );
 ```
@@ -30,7 +30,7 @@ x = lerp_cm(
     "enter_anim",
     0.5,
     -200, 0,
-    crvLerp, "trans_cubic",
+    crvLerp, "trans_cubic_in_out",
     function() { state = STATE.IDLE; }
 );
 ```
@@ -44,7 +44,7 @@ x = lerp_cm(
     "move_x",
     2.0,
     x_start, x_target,
-    crvLerp, "trans_cubic",
+    crvLerp, "trans_cubic_in_out",
     function() { show_debug_message("finished"); }, // completion
     50,                                              // exception percent
     function() { show_debug_message("halfway"); }   // exception callback
@@ -64,7 +64,7 @@ x = lerp_cm(
     "move_x",
     2.0,
     x_start, x_target,
-    crvLerp, "trans_cubic",
+    crvLerp, "trans_cubic_in_out",
     undefined,
     75,
     function() { show_debug_message("three quarters through"); }
@@ -80,7 +80,7 @@ x = lerp_cm(
     "move_x",
     1.0,
     x_start, x_target,
-    crvLerp, "trans_cubic",
+    crvLerp, "trans_cubic_in_out",
     function() {
         active = false;  // refers to this object's active variable
         instance_destroy();

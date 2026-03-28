@@ -30,7 +30,7 @@ This means `lerp_cm()` belongs in a Step event, not a Create event. A typical us
 
 ```gml
 // Step event
-x = lerp_cm("move_x", 1.5, x_start, x_target, crvLerp, "trans_cubic");
+x = lerp_cm("move_x", 1.5, x_start, x_target, crvLerp, "trans_cubic_in_out");
 ```
 
 Every step, `lerp_cm()` checks whether `"move_x"` exists in the store. If it does, it calculates the interpolated value based on how far through the duration the timer is, advances the timer by one frame, and returns the result. If the timer exceeds the duration, it fires the completion callback, removes the entry from the store, and the interpolation is finished.

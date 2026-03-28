@@ -14,34 +14,37 @@ Continuum evaluates the curve at the current progress through the interpolation 
 
 ## Bundled Curves
 
-Continuum ships with two animation curves that cover most common use cases. You can start using them immediately without creating anything yourself.
+Continuum ships with two animation curves you can use immediately without creating anything yourself.
 
 ### crvLerp
 
-A comprehensive set of easing channels covering the most common interpolation styles.
+A comprehensive set of easing channels covering the most common interpolation styles. Each of the seven core easing types comes in three variants -- ease in, ease out, and ease in-out.
+
+| Channel pattern | Description |
+|---|---|
+| `trans_*_in` | Starts slow and accelerates |
+| `trans_*_out` | Starts fast and decelerates |
+| `trans_*_in_out` | Slow at both ends, faster through the middle |
+
+The available easing types are `sine`, `quad`, `cubic`, `quart`, `quint`, `expo`, and `circ`, giving you 21 channels in total. The strength of the curve increases from sine (gentlest) through to expo and circ (most dramatic).
+
+There are also a handful of additional channels for special cases:
 
 | Channel | Description |
 |---|---|
 | `trans_linear` | Constant rate of change, no easing |
-| `trans_sine` | Gentle ease in and out |
-| `trans_quad` | Slightly stronger ease in and out |
-| `trans_cubic` | Noticeable ease in and out |
-| `trans_quart` | Strong ease in and out |
-| `trans_quint` | Very strong ease in and out |
-| `trans_expo` | Dramatic acceleration and deceleration |
-| `trans_circ` | Circular easing, snappy start or finish |
-| `trans_back` | Slight overshoot before settling |
-| `trans_bounce` | Bounces at the end before settling |
-| `trans_bounce_return` | Bounces out and returns to start |
 | `trans_elastic` | Spring-like overshoot and oscillation |
-| `trans_easeout` | Fast start, gradual deceleration |
-| `pulse_tri` | Rises to peak then falls back to start |
-| `pulse_tri_partial` | Rises to peak then falls, does not return to start |
-| `pulse_quint` | Same as `pulse_tri` with a stronger curve |
-| `pulse_quint_partial` | Same as `pulse_tri_partial` with a stronger curve |
+| `trans_bounce` | Oscillates with diminishing waves before settling at the end value |
+| `trans_bounce_return` | Rises with oscillation, peaks, then returns back to the start value |
+| `dip_back` | Dips below the start value before sweeping up past the end value and settling |
+| `triple_pulse` | Rises to peak and falls back to start, three times |
+| `triple_pulse_partial` | Same as `triple_pulse` but does not return fully to start |
+| `five_pulse` | Rises to peak and falls back to start, five times |
+| `five_pulse_partial` | Same as `five_pulse` but does not return fully to start |
 
 ```gml
-x = lerp_cm("move_x", 1.5, 0, 100, crvLerp, "trans_cubic");
+x = lerp_cm("move_x", 1.5, 0, 100, crvLerp, "trans_cubic_in_out");
+image_alpha = lerp_cm("fade", 0.3, 0, 1, crvLerp, "triple_pulse");
 ```
 
 ### crvLinearVariations
@@ -92,8 +95,8 @@ The same curve can be used for multiple simultaneous interpolations. Each `lerp_
 ## Tips
 
 - The bundled `crvLerp` and `crvLinearVariations` curves cover most common cases -- reach for them first before creating your own
-- Use multiple channels on a single curve asset if you want related but differently-shaped easings grouped together
-- Overshoot curves like `trans_back` and `trans_elastic` work well for UI elements that need to feel responsive and physical
+- Use `trans_*_in_out` variants for most UI movement, `trans_*_out` for things that need to feel snappy, and `trans_*_in` for things building up momentum
+- Overshoot curves like `dip_back` and `trans_elastic` work well for UI elements that need to feel responsive and physical
 - The pulse channels are useful for effects that need to rise and fall, like a flash or a pulsing glow
 
 ---

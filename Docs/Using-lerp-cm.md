@@ -12,10 +12,10 @@ The minimum required arguments are a name, a duration, a start value, an end val
 
 ```gml
 // Step event
-x = lerp_cm("move_x", 1.5, 0, 100, crvLerp, "trans_cubic");
+x = lerp_cm("move_x", 1.5, 0, 100, crvLerp, "trans_cubic_in_out");
 ```
 
-This interpolates `x` from `0` to `100` over 1.5 seconds, shaped by the `"trans_cubic"` channel of the bundled `crvLerp` curve. See [Animation Curves](Animation-Curves.md) for the full list of bundled channels and how to create your own.
+This interpolates `x` from `0` to `100` over 1.5 seconds, shaped by the `"trans_cubic_in_out"` channel of the bundled `crvLerp` curve. See [Animation Curves](Animation-Curves.md) for the full list of bundled channels and how to create your own.
 
 The name `"move_x"` is how Continuum tracks this interpolation in the store. It can be any string you like, as long as it is unique among active interpolations on the same object.
 
@@ -29,7 +29,7 @@ x_start = x;
 x_target = 500;
 
 // Step event -- drive the interpolation
-x = lerp_cm("move_x", 2.0, x_start, x_target, crvLerp, "trans_cubic");
+x = lerp_cm("move_x", 2.0, x_start, x_target, crvLerp, "trans_cubic_in_out");
 ```
 
 ## The First Frame
@@ -42,9 +42,9 @@ Each interpolation needs a unique name. You can run as many simultaneously as yo
 
 ```gml
 // Step event
-x            = lerp_cm("move_x",  1.0, x_start, x_target, crvLerp, "trans_cubic");
-y            = lerp_cm("move_y",  1.5, y_start, y_target, crvLerp, "trans_cubic");
-image_alpha  = lerp_cm("fade_in", 0.5, 0, 1,               crvLerp, "trans_sine");
+x            = lerp_cm("move_x",  1.0, x_start, x_target, crvLerp, "trans_cubic_in_out");
+y            = lerp_cm("move_y",  1.5, y_start, y_target, crvLerp, "trans_cubic_in_out");
+image_alpha  = lerp_cm("fade_in", 0.5, 0, 1,               crvLerp, "trans_sine_in_out");
 ```
 
 Each one tracks its own timer and completes independently.
