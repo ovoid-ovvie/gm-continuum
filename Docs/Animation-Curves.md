@@ -38,9 +38,9 @@ There are also a handful of additional channels for special cases:
 | `trans_bounce_return` | Rises with oscillation, peaks, then returns back to the start value |
 | `dip_back` | Dips below the start value before sweeping up past the end value and settling |
 | `triple_pulse` | Rises to peak and falls back to start, three times |
-| `triple_pulse_partial` | Same as `triple_pulse` but does not return fully reach the peak |
+| `triple_pulse_partial` | Same as `triple_pulse` but does not fully reach the peak |
 | `five_pulse` | Rises to peak and falls back to start, five times |
-| `five_pulse_partial` | Same as `five_pulse` but does not return fully reach the peak |
+| `five_pulse_partial` | Same as `five_pulse` but does not return reach the peak |
 
 ```gml
 x = lerp_cm("move_x", 1.5, 0, 100, crvLerp, "trans_cubic_in_out");
