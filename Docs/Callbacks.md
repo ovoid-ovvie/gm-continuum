@@ -57,7 +57,7 @@ The exception callback only fires once. Once triggered it will not fire again fo
 
 ## Using Only the Exception Callback
 
-If you want an exception callback but no completion callback, pass `undefined` for the completion callback. Continuum checks whether the argument is a method before calling it, so passing `undefined` is safe.
+If you want an exception callback but no completion callback, pass `undefined` for the completion callback. Continuum will set it to a no-op function internally, so passing `undefined` is safe.
 
 ```gml
 x = lerp_cm(

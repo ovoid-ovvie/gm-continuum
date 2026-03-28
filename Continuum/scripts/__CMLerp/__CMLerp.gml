@@ -14,11 +14,14 @@ function lerp_cm
     name,
     dur, start, finish,
     curve, channel,
-    complete_func = __cm_noop,
+    complete_func = undefined,
     exception_percent = 100,
-    exception_func = __cm_noop
+    exception_func = undefined
 )
 {
+	complete_func ??= __cm_noop;
+	exception_func ??= __cm_noop;
+	
     if ( !__cm_lerp_exists(name) )
     {
         __cm_lerp_start(name, dur * game_get_speed(gamespeed_fps));
