@@ -4,7 +4,7 @@
 /// @param {Real} start The starting value (i.e. lower bound) of the interpolation process.
 /// @param {Real} finish The ending value (i.e. upper bound) of the interpolation process.
 /// @param {Asset.GMAnimCurve} curve The animation curve to use for interpolation.
-/// @param {String} channel The name of the animation curve'channel to use for interpolation.
+/// @param {String} channel The name of the animation curve channel to use for interpolation.
 /// @param {Function} [complete_func] A function to call upon completion of the interpolation process.
 /// @param {Real} [exception_percent] A number between 0 and 100 representing a portion of the way through the interpolation process. Used in deciding when to call `exception_func`.
 /// @param {Function} [exception_func] A function to call upon partial completion of the interpolation process, as specified by `exception_percent`.
