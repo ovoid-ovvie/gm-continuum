@@ -8,7 +8,7 @@ Continuum has one public function. Internal functions are prefixed with `__cm_` 
 
 ---
 
-## [lerp_cm(name, dur, start, finish, curve, channel, [complete_func], [exception_percent], [exception_func])](../Continuum/__CMLerp/__CMLerp.gml)
+## [lerp_cm(name, dur, start, finish, curve, channel, [complete_func], [exception_percent], [exception_func])](../Continuum/scripts/__CMLerp/__CMLerp.gml)
 
 Interpolates between two values over a given duration, shaped by an animation curve. Must be called every step to drive the interpolation.
 
@@ -51,7 +51,7 @@ See [How It Works](How-It-Works.md) and [Using lerp_cm](Using-lerp-cm.md) for fu
 
 ## Configuration
 
-### [CMConfig](../Continuum/CMConfig/CMConfig.gml)
+### [CMConfig](../Continuum/scripts/CMConfig/CMConfig.gml)
 
 ```gml
 #macro CM_STORE global.lerp
@@ -85,8 +85,8 @@ These are not intended to be called directly.
 
 | Function | Script | Description |
 |---|---|---|
-| `__cm_lerp_exists(name)` | [__CMLerpExists](../Continuum/__CMLerpExists/__CMLerpExists.gml) | Checks if an interpolation entry exists in the store |
-| `__cm_lerp_start(name, max_time)` | [__CMLerpStart](../Continuum/__CMLerpStart/__CMLerpStart.gml) | Creates a new interpolation entry in the store |
-| `__cm_lerp_process(a, b, t, curve, channel)` | [__CMProcess](../Continuum/__CMProcess/__CMProcess.gml) | Evaluates the curve and returns the interpolated value |
-| `__cm_decimal(value)` | [__CMDecimal](../Continuum/__CMDecimal/__CMDecimal.gml) | Converts a 0-100 percentage to a 0-1 decimal |
-| `__cm_noop()` | [__CMNoOp](../Continuum/__CMNoOp/__CMNoOp.gml) | Empty function used as a default callback placeholder |
+| `__cm_lerp_exists(name)` | [__CMLerpExists](../Continuum/scripts/__CMLerpExists/__CMLerpExists.gml) | Checks if an interpolation entry exists in the store |
+| `__cm_lerp_start(name, max_time)` | [__CMLerpStart](../Continuum/scripts/__CMLerpStart/__CMLerpStart.gml) | Creates a new interpolation entry in the store |
+| `__cm_lerp_process(a, b, t, curve, channel)` | [__CMProcess](../Continuum/scripts/__CMProcess/__CMProcess.gml) | Evaluates the curve and returns the interpolated value |
+| `__cm_decimal(value)` | [__CMDecimal](../Continuum/scripts/__CMDecimal/__CMDecimal.gml) | Converts a 0-100 percentage to a 0-1 decimal |
+| `__cm_noop()` | [__CMNoOp](../Continuum/scripts/__CMNoOp/__CMNoOp.gml) | Empty function used as a default callback placeholder |

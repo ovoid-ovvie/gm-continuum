@@ -22,7 +22,7 @@ Either way, an import window will open showing the package contents. Click `Add 
 
 ## 3. Configure CMConfig
 
-Open [`CMConfig`](../Continuum/CMConfig/CMConfig.gml) and check the store location. By default Continuum stores its interpolation data in `global.lerp`.
+Open [`CMConfig`](../Continuum/scripts/CMConfig/CMConfig.gml) and check the store location. By default Continuum stores its interpolation data in `global.lerp`.
 
 ```gml
 #macro CM_STORE global.lerp
